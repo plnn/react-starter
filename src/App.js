@@ -1,13 +1,20 @@
 import './App.css';
-import Card from './components/Card/Card.tsx';
+import Layout from './components/Layout/Layout.tsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Book } from './pages/Books/Book.tsx';
+import { Favorites } from './pages/Favorites/Favorites.tsx';
 
 function App() {
   return (
-    <div className="App">
-      <Card>
-      <h1>hELOOO</h1>
-      </Card>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        k
+        <Route path='/' element={<Layout />}>
+          <Route path='/book' element={<Book />} />
+          <Route path='/favorites' element={<Favorites />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
