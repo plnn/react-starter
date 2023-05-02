@@ -1,5 +1,5 @@
 import './App.css';
-import Layout from './components/Layout/Layout.tsx';
+import Layout from './components/molecules/Layout/Layout.tsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Book } from './pages/Books/Book.tsx';
 import { Favorites } from './pages/Favorites/Favorites.tsx';

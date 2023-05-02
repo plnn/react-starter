@@ -3,7 +3,7 @@ import Header from '../header/Header.tsx';
 import Navigation from '../Navbar/Navbar.tsx';
 import { Outlet } from 'react-router-dom';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <React.Fragment>
       <Header />

@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from 'src/components/Card/Card';
+import Card from 'src/components/atoms/Card/Card';
 import './Book.scss';
 import styles from './Book.module.scss';
 
