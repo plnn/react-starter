@@ -1,16 +1,24 @@
-import * as http from 'axios';
+import axios from 'axios';
 // eslint-disable-next-line import/extensions
-import Endpoints from './Endpoints.json';
+import Endpoints from './endpoints.json';
 
-export const findEndpoint = (endpoint) =>
-  `${process.env.REACT_APP_API_BASE_URL}${Endpoints[endpoint]}`;
+const getEnv = () => {
+  // TODO: create env files for each env and try to get ENV VARIABLE from it.
+  if (process.env.NODE_ENV === 'development') return ' http://127.0.0.1:3001';
+
+  return '';
+};
+
+const findEndpoint = (endpoint) => {
+  return `${getEnv()}${Endpoints[endpoint]}`;
+};
 
 async function Request(
   method,
   endpoint,
   data = null,
   headers,
-  queryString = null,
+  queryString,
   responseType = null,
   returnResponseObject = false,
 ) {
@@ -48,7 +56,7 @@ async function Request(
   const makeRequest = async () => {
     document.body.classList.add('pending');
     try {
-      const response = await http(options);
+      const response = await axios(options);
       document.body.classList.remove('pending');
       if (returnResponseObject) {
         return response;
@@ -56,9 +64,9 @@ async function Request(
       return response.data;
     } catch (e) {
       document.body.classList.remove('pending');
-
+      console.log('error', e);
       // according to backend response, form your return response.
-      if (e && e.response && e.response.data) return e.response.data;
+      if (e && e.response && e.response.status === 200) return e.response.data;
 
       return {
         Succeed: false,

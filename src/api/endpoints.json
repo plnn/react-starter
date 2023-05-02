@@ -1,5 +1,6 @@
 {
   "FAVORITES": "favorites",
   "QUERY_STRING_ENDPOINT_SAMPLE": "/endpoint/with-querystring?{QUERYSTRING}",
-  "ENDPOINT_WITH_ID": "/endpoint/{{id}}"
+  "ENDPOINT_WITH_ID": "/endpoint/{{id}}",
+  "BOOKS": "/api/books"
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../header/Header.tsx';
-import Navigation from '../Navbar/Navbar.tsx';
 import { Outlet } from 'react-router-dom';
+import Navigation from '../Navbar/Navbar.tsx';
+import Header from '../header/Header.tsx';
 
 const Layout = () => {
   return (
