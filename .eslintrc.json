@@ -14,10 +14,20 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "dot-location": "off",
-    "import/extensions": 1,
     "import/no-named-as-default": 0,
     "@typescript-eslint/strict-boolean-expressions": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "": "never",
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
   }
 }

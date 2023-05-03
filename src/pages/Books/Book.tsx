@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from 'react';
+
 import Card from 'src/components/atoms/Card/Card';
 import './Book.scss';
-import styles from './Book.module.scss';
-// eslint-disable-next-line import/extensions
-import Request from 'src/api/request.js';
+import Request from 'src/api/request';
+import { Button } from 'src/components/atoms/Button/Button';
 
-async function fetchData(setPosts) {
+async function fetchData(setBooks) {
   try {
     const booksResponse = await Request('GET', 'BOOKS', null, null);
-    setPosts(booksResponse);
+    setBooks(booksResponse);
   } catch (err) {
     console.log(err);
   }
 }
 
 export const Book = () => {
-  const [posts, setPosts] = useState({});
+  const [books, setBooks] = useState<Array<{ name: string; id: number }>>([]);
   useEffect(() => {
-    void fetchData(setPosts);
+    void fetchData(setBooks);
   }, []);
-  console.log(posts);
   return (
     <div className='book-container'>
       Book Page
-      <div className={styles.bookItem}>Körlük</div>
+      {(books || []).map((item) => (
+        <div key={`book_${item.id}`}>{item.name}</div>
+      ))}
       <Card>HELLO</Card>
+      <Button $primary>PROCEED</Button>
     </div>
   );
 };
